@@ -15,6 +15,7 @@ const getProductsDetails = async (req, res) => {
               }})
             const page = await browser.newPage()
             await page.goto(url)
+            await sleep(1000)
             await page.click(".header_pincode__sjB2y")
             await sleep(1000)
             await page.type("#pincodeInput", "500035")
