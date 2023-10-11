@@ -10,7 +10,7 @@ const getProductsDetails = async (req, res) => {
     try {
         const resData = await Promise.all(urls.map( async (url) => {
             const browser = await puppeteer.launch({ 
-                headless: "new",
+                headless: false,
                 defaultViewport: {
                 width:1920,
                 height:1080
