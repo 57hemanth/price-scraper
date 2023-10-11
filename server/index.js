@@ -1,7 +1,9 @@
 import express from "express"
 import productRouter from "./routes/productRouter.js"
 import cors from "cors"
+import dotenv from "dotenv"
 
+dotenv.config()
 const app = express()
 
 app.use(express.json())
