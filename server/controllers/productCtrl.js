@@ -9,13 +9,26 @@ const getProductsDetails = async (req, res) => {
     const { urls } = req.body
     try {
         const resData = await Promise.all(urls.map( async (url) => {
-            const browser = await puppeteer.launch({ headless: "new" ,defaultViewport: {
+            const browser = await puppeteer.launch({ 
+                headless: "new",
+                defaultViewport: {
                 width:1920,
                 height:1080
-              }})
+                },
+                args: [
+                    "--disable-setuid-sandbox",
+                    "--no-sandbox",
+                    "--single-process",
+                    "--no-zygote",
+                ],
+                executablePath:
+                    process.env.NODE_ENV === "production"
+                    ? process.env.PUPPETEER_EXECUTABLE_PATH
+                    : puppeteer.executablePath() 
+            })
             const page = await browser.newPage()
             await page.goto(url)
-            await sleep(2000)
+            await sleep(1000)
             await page.click(".header_pincode__sjB2y")
             await sleep(1000)
             await page.type("#pincodeInput", "500035")
