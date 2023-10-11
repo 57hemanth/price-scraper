@@ -8,14 +8,12 @@ function sleep(ms) {
 const getProductsDetails = async (req, res) => {
     const { urls } = req.body
     try {
-        console.log("Runnn")
         const resData = await Promise.all(urls.map( async (url) => {
-            const browser = await puppeteer.launch({ headless: false ,defaultViewport: {
+            const browser = await puppeteer.launch({ headless: "new" ,defaultViewport: {
                 width:1920,
                 height:1080
               }})
             const page = await browser.newPage()
-            console.log(url)
             await page.goto(url)
             await sleep(2000)
             await page.click(".header_pincode__sjB2y")
