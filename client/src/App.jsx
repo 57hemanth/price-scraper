@@ -99,7 +99,7 @@ export default function App() {
             return(
               <div className="flex flex-col gap-2 border border-gray-300 shadow rounded w-fit p-4 text-left" key={i}>
                 <p><span className="font-bold">Product Name: </span>{res.title}</p>
-                <p><span className="font-bold">Quantity: </span>{res.quantity} kgs</p>
+                <p><span className="font-bold">Quantity: </span>{res.quantity}</p>
                 <p><span className="font-bold">MRP: </span>{res.mrp}</p>
                 <p><span className="font-bold">Price: </span>{res.price}</p>
                 <p><span className="font-bold">Saving: </span>{res.saving}</p>
